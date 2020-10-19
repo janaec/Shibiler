@@ -64,4 +64,18 @@ var theDay = [
         reminder: "",
     }
 ]
-
+// targeting the current date in header 
+function getHeader() {
+    var currentDate = moment().format('dddd,MMMM Do');
+    $("#currentDay").text(currentDate);
+}
+function displayReminders(){
+   localStorage.setItem("theDay", JSON.stringify(theDay));
+    }
+function InIt() {
+    var storedDay = JSON.parse(localStorage.getItem("theDay"));
+    if (storedDay) {
+        thisDay= storedDay;
+    }
+    displayReminders();
+}
